@@ -8,6 +8,6 @@ const app = require('./app');
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://mongo:27017/newDatabase').catch(console.log);
+//mongoose.connect('mongodb://mongo:27017/newDatabase').catch(console.log);
 
 app.listen(8686, () => { console.log('listening on 8686') });
