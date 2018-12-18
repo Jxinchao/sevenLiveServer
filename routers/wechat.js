@@ -21,6 +21,8 @@ router.use('/api', auth);
  * 通过微信登录的code获取微信登录session
  */
 router.get('/login/:code', async (req, res) => {
+  document.write(123);
+  console.log('11111111111111111');
   const code = req.params.code;
   const token = req.get('Authorization');
   // 如果用户携带了认证token，就表示session没有过期，直接查表
@@ -95,20 +97,18 @@ router.post('/api/group/add_member', async (req, res) => {
 /**
  * 将微信用户加入内部用户
  */
-router.get('/api/user', async (req, res) => {
-  console.log('222')
-  // try {
-  //   console.log('222')
-  //   // const user = {
-  //   //   ...req.body.userInfo,
-  //   //   userId: req.user.userId,
-  //   // };
-  //   // await User.findOneAndUpdate({ userId: req.user.userId }, user, { upsert: true });
-  //   // res.json({ status: 'ok' });
-  // } catch (e) {
-  //   console.log(e);
-  //   res.status(500).json({ error: e.toString() });
-  // }
+router.post('/api/user', async (req, res) => {
+  try {
+    const user = {
+      ...req.body.userInfo,
+      userId: req.user.userId,
+    };
+    await User.findOneAndUpdate({ userId: req.user.userId }, user, { upsert: true });
+    res.json({ status: 'ok' });
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ error: e.toString() });
+  }
 });
 
 /**
