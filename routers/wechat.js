@@ -96,12 +96,13 @@ router.post('/api/group/add_member', async (req, res) => {
  */
 router.post('/api/user', async (req, res) => {
   try {
-    const user = {
-      ...req.body.userInfo,
-      userId: req.user.userId,
-    };
-    await User.findOneAndUpdate({ userId: req.user.userId }, user, { upsert: true });
-    res.json({ status: 'ok' });
+    console.log('.....')
+    // const user = {
+    //   ...req.body.userInfo,
+    //   userId: req.user.userId,
+    // };
+    // await User.findOneAndUpdate({ userId: req.user.userId }, user, { upsert: true });
+    // res.json({ status: 'ok' });
   } catch (e) {
     console.log(e);
     res.status(500).json({ error: e.toString() });
