@@ -16,17 +16,11 @@ const { getUserInfo, decryptData } = require('../utils/wechat');
 const { getUsersFromGroup } = require('../utils/storage');
 
 router.use('/api', auth);
-
-// router.get('/login', async (req, res) => {
-//   res.send('123')
-//  });
-// /**
-//  * 通过微信登录的code获取微信登录session
-//  */
+/**
+ * 通过微信登录的code获取微信登录session
+ */
 router.get('/login/:code', async (req, res) => {
-  document.write(123);
-  console.log('11111111111111111');
-  const code = req.params.code;
+  const code = '061fl96728WVQR0TV0672YYo672fl96n';
   const token = req.get('Authorization');
   // 如果用户携带了认证token，就表示session没有过期，直接查表
   if (token) {
@@ -43,15 +37,17 @@ router.get('/login/:code', async (req, res) => {
   }
 
   try {
-    const userInfo = await getUserInfo(code);
-
+    // const userInfo = await getUserInfo(code);
+    const userInfo = {
+      openid:1,
+      session_key:666
+    }
     await User.findOneAndUpdate(
       { userId: userInfo.openid },
       { userId: userInfo.openid, sessionKey: userInfo.session_key },
       { upsert: true },
     );
     const user = await User.findOne({ userId: userInfo.openid });
-    console.log(user);
     // 签发JWTtoken，用于之后认证
     const token = jwt.sign({ id: user._id }, user.sessionKey);
     res.json({ token });
