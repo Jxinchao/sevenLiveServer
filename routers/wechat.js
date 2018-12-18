@@ -16,6 +16,7 @@ const { getUserInfo, decryptData } = require('../utils/wechat');
 const { getUsersFromGroup } = require('../utils/storage');
 
 router.use('/api', auth);
+
 /**
  * 通过微信登录的code获取微信登录session
  */
@@ -94,19 +95,20 @@ router.post('/api/group/add_member', async (req, res) => {
 /**
  * 将微信用户加入内部用户
  */
-router.post('/api/user', async (req, res) => {
-  try {
-    console.log('.....')
-    // const user = {
-    //   ...req.body.userInfo,
-    //   userId: req.user.userId,
-    // };
-    // await User.findOneAndUpdate({ userId: req.user.userId }, user, { upsert: true });
-    // res.json({ status: 'ok' });
-  } catch (e) {
-    console.log(e);
-    res.status(500).json({ error: e.toString() });
-  }
+router.get('/api/user', async (req, res) => {
+  console.log('222')
+  // try {
+  //   console.log('222')
+  //   // const user = {
+  //   //   ...req.body.userInfo,
+  //   //   userId: req.user.userId,
+  //   // };
+  //   // await User.findOneAndUpdate({ userId: req.user.userId }, user, { upsert: true });
+  //   // res.json({ status: 'ok' });
+  // } catch (e) {
+  //   console.log(e);
+  //   res.status(500).json({ error: e.toString() });
+  // }
 });
 
 /**
