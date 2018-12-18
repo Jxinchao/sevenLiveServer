@@ -34,7 +34,7 @@ router.get('/api/rtmp/:type/:user?', (req, res) => {
   //     return;
   // }
 
-  res.json({url: rtmpURL});
+  res.json({url: '1111111'});
 });
 
 /**
