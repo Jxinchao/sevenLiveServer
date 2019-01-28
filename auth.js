@@ -10,7 +10,7 @@ const { User } = require('./models');
 async function auth(req, res, next) {
   const token = req.get('Authorization');
   if (!token) {
-    res.status(403).json({ error: 'no Authorization' });
+    res.status(403).json({ error: 'no Authorization 123' });
     return;
   }
 
