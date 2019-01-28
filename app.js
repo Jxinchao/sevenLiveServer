@@ -33,6 +33,8 @@ app.use(bodyParser.json());
 app.use('/wechat', require('./routers/wechat'));
 app.use('/pili', require('./routers/pili'));
 
+app.use('/a', require('./a.html'));
+
 const server = https.createServer(options, app)
 // const server = http.createServer(app);
 
