@@ -21,18 +21,20 @@ router.get('/api/rtmp/:type/:user?', (req, res) => {
   const streamKey = getStreamKey(userId);
   let rtmpURL;
   rtmpURL = PILI.getRTMPPlayURL(streamKey);
-  console.log(rtmpURL,'5555');
-  // switch (type) {
-  //   case 'play':
-  //     rtmpURL = PILI.getRTMPPlayURL(streamKey);
-  //     break;
-  //   case 'publish':
-  //     rtmpURL = PILI.getRTMPPublishURL(streamKey);
-  //     break;
-  //   default:
-  //     res.status(403).json({ error: 'unsupport type' });
-  //     return;
-  // }
+
+  switch (type) {
+    case 'play':
+      rtmpURL = PILI.getRTMPPlayURL(streamKey);
+      console.log(rtmpURL);
+      break;
+    case 'publish':
+      rtmpURL = PILI.getRTMPPublishURL(streamKey);
+      console.log(rtmpURL);
+      break;
+    default:
+      res.status(403).json({ error: 'unsupport type' });
+      return;
+  }
 
   res.json({url: rtmpURL});
 });

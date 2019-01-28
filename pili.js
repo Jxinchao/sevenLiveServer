@@ -19,8 +19,8 @@ PILI.setAuthorization(
  * 这里替换成自己直播云中的推流地址和播放地址
  */
 PILI.setDomain({
-  rtmpPublish: 'pili-publish.douyin.com',   // 推流
-  rtmpPlay: 'pili-live-rtmp.douyin.com',    // 播流
+  rtmpPublish: 'publish.zslaq.com',   // 推流
+  rtmpPlay: 'rtmp.zslaq.com',    // 播流
 });
 
 /**

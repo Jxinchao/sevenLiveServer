@@ -20,13 +20,16 @@ router.use('/api', auth);
  * 通过微信登录的code获取微信登录session
  */
 router.get('/login/:code', async (req, res) => {
-  const code = '061fl96728WVQR0TV0672YYo672fl96n';
+  const code = 'b779a7ede0e73b3eefccf473bdd68bd1';  // appSecret
+//061fl96728WVQR0TV0672YYo672fl96n
   const token = req.get('Authorization');
+  // Authorization
   // 如果用户携带了认证token，就表示session没有过期，直接查表
   if (token) {
     const decoded = jwt.decode(token);
     const user = await User.findOne({ _id: decoded.id });
     try {
+      console.log(decoded)
       jwt.verify(token, user.sessionKey);
       res.json({ token });
     } catch (e) {
@@ -37,11 +40,12 @@ router.get('/login/:code', async (req, res) => {
   }
 
   try {
-    // const userInfo = await getUserInfo(code);
-    const userInfo = {
-      openid:1,
-      session_key:666
-    }
+    const userInfo = await getUserInfo(code);
+    console.log(userInfo)
+    // const userInfo = {
+    //   openid:1,
+    //   session_key:666
+    // }
     await User.findOneAndUpdate(
       { userId: userInfo.openid },
       { userId: userInfo.openid, sessionKey: userInfo.session_key },
