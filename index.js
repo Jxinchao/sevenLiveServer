@@ -24,6 +24,6 @@ const mongoose = require('mongoose');
 // 120.79.168.209
 // 'mongodb://127.0.0.1:27017/newDatabase
 
-mongoose.connect('mongodb://120.79.168.209:27017/newDatabase',{useNewUrlParser:true}).catch(console.log);
+mongoose.connect('mongodb://120.79.168.209:27017/test',{useNewUrlParser:true}).catch(console.log);
 
 app.listen(8686, () => { console.log('listening on 8686') });

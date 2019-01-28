@@ -20,8 +20,8 @@ router.use('/api', auth);
  * 通过微信登录的code获取微信登录session
  */
 router.get('/login/:code', async (req, res) => {
-  const code = 'b779a7ede0e73b3eefccf473bdd68bd1';  // appSecret
-//061fl96728WVQR0TV0672YYo672fl96n
+  const code = 'e1584395531be02ff00050492c57330a';  // appSecret
+//061fl96728WVQR0TV0672YYo672fl96n      b779a7ede0e73b3eefccf473bdd68bd1
   const token = req.get('Authorization');
   // Authorization
   // 如果用户携带了认证token，就表示session没有过期，直接查表
