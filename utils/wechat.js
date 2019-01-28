@@ -7,8 +7,8 @@
 const axios = require('axios');
 const WXBizDataCrypt = require('../aes/WXBizDataCrypt');
 
-const WECHAT_APPID = 'wx95962d15996b073f';
-const WECHAT_APPSECRET = 'ee1495665269ef2d9303ac6031f4715e';
+const WECHAT_APPID = 'wxdad8388e59f89655';
+const WECHAT_APPSECRET = 'e1584395531be02ff00050492c57330a';
 
 /**
  * 获取微信信息
