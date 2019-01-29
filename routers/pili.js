@@ -21,7 +21,8 @@ router.get('/api/rtmp/:type/:user?', (req, res) => {
   const streamKey = getStreamKey(userId);
   let rtmpURL;
   rtmpURL = PILI.getRTMPPlayURL(streamKey);
-
+  // rtmpURL = PILI.getRTMPPlayURL(streamKey);
+  console.log(rtmpURL);
   switch (type) {
     case 'play':
       rtmpURL = PILI.getRTMPPlayURL(streamKey);
